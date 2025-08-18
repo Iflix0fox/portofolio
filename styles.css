@@ -1,0 +1,253 @@
+/* Reset margins and padding for all elements to ensure consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style the body with a clean font and background */
+body {
+  font-family: Arial, sans-serif; /* Set font */
+  margin: 0;
+  padding: 0;
+  /* background-color: rgb(52, 187, 52); */
+  /* background-color: rgb(6, 54, 2); */
+  /* background-color: rgb(86, 168, 96); */
+  background-color: rgb(80, 79, 79);
+  color: #333; /* Dark text for readability */
+}
+
+/* ====== HEADER SECTION ====== */
+
+/* Style the header container */
+.myHeader {
+  position: relative; /* Needed to absolutely position #heroContent inside */
+  display: flex; /* Use Flexbox for layout */
+  justify-content: flex-end; /* Push nav to the right */
+  align-items: center; /* Vertically center content */
+  background-color: gray; /* Blue background */
+  height: 100px; /* Set header height */
+  padding: 0 20px; /* Space left and right */
+}
+
+/* Center the hero content (h1) exactly in the middle of the header */
+#heroContent {
+  position: absolute; /* Position it independently of flex layout */
+  right: 75%; /* Move it halfway from the left */ /* Shift it back by 50% of its own width to truly center */
+  color: white;
+  -webkit-text-stroke: 0.5px rgb(52, 187, 52);
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+h1 a:visited,
+h1 a:link {
+  color: white;
+  text-decoration: none;
+}
+
+/* Style the navigation bar */
+.mainNav {
+  color: white;
+  -webkit-text-stroke: 0.5px rgb(52, 187, 52);
+  font-size: 20px;
+  display: flex; /* Flexbox layout for nav links */
+  align-items: center; /* Vertically align nav items */
+}
+
+/* Unused: This would be if h1 was inside <nav>, but it’s not */
+nav h1 {
+  display: flex;
+}
+
+/* Style the navigation links list */
+nav ul {
+  list-style: none; /* Remove bullets from list */
+  display: flex; /* Display list items in a row */
+  gap: 20px; /* Add spacing between links */
+  /* (Note: won't affect actual link text color) */
+}
+
+/* Style individual links */
+nav ul li a {
+  color: white; /* White text color */
+  text-decoration: none; /* Remove underline */
+}
+
+nav ul li a:visited {
+  color: white;
+  -webkit-text-stroke: 0.5px rgb(52, 187, 52);
+}
+
+nav ul li a:link {
+  color: white;
+  -webkit-text-stroke: 0.5px rgb(52, 187, 52);
+}
+
+/* Change link color on hover */
+nav ul li a:hover {
+  color: rgb(52, 187, 52); /* Hover color */
+  cursor: pointer; /* Pointer cursor */
+}
+
+#bodyH1 {
+  color: white; /* Red text color (overwritten by `header h1`) */
+  -webkit-text-stroke: 0.5px rgb(52, 187, 52);
+  text-align: center; /* Center the text */
+  margin-top: 20px; /* Top space */
+  margin-bottom: 5px;
+}
+
+.backGround p {
+  /* offset-x | offset-y | blur-radius | color */
+  text-shadow: 0px 0px 10px black;
+  color: white;
+}
+
+/* Parent container with perspective */
+.flip-container {
+  perspective: 1000px;
+  width: 200px;
+  height: 200px;
+  margin: 40px auto;
+}
+
+.flip-wrapper {
+  border-radius: 30%; /* rounded corners here */
+  overflow: hidden; /* clip children */
+  width: 200px;
+  height: 200px;
+  border: solid 3px rgb(50, 48, 48);
+  background-color: black;
+}
+
+/* Flipper that holds both front and back */
+.flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  border-radius: 30%; /* same border-radius */
+  border-radius: inherit; /* inherit border-radius for consistency */
+}
+
+/* Flip effect on hover */
+.flip-container:hover .flipper {
+  transform: rotateY(180deg);
+}
+
+/* Front and back faces */
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  border-radius: 30%;
+  border-radius: inherit; /* keep rounded corners */
+}
+
+.front img,
+.back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Back face rotated 180 degrees */
+.back {
+  transform: rotateY(180deg);
+}
+
+.backGround {
+  position: relative;
+  margin: 0 2em;
+  border: solid 3px rgb(50, 48, 48);
+  border-radius: 2%;
+  overflow: hidden;
+  background-image: url(backgroundPic.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 700px;
+}
+#backGroundPic {
+  display: none;
+  width: 100%;
+}
+
+#bodyP1 {
+  display: inline-block;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+#bodyP2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  max-width: 15em;
+  border-radius: 10px;
+}
+
+#bodyP3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  max-width: 15em;
+  border-radius: 10px;
+}
+
+/* Global h1 style (can affect all h1s not in header) */
+.iconSpan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.iconSpan i {
+  font-size: 35px;
+  color: black;
+}
+
+#instagram {
+  color: black;
+}
+
+.discordapp {
+  color: black;
+}
+
+.footer1 {
+  color: black;
+  background-color: gray;
+  padding: 2em;
+  border: 2px solid black;
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* ==== Fix for 3D flip rendering in some browsers like Chrome ==== */
+.flip-container {
+  transform-style: preserve-3d;
+}
+
+.flip-container,
+.flipper,
+.front,
+.back {
+  will-change: transform;
+}
+
+.front,
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
